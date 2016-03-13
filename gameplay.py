@@ -35,7 +35,9 @@ class game:
 			return False
 		if width>2*26 or height>2*26 or n_mines > width*height:
 			return False
-
+		if n_mines > height*width:
+			return False
+ 
 		self.numOfMines=n_mines
 		self.dimHeight=height
 		self.dimWidth=width

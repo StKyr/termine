@@ -114,7 +114,9 @@ def arguments(argv=None):
 			print "Error: Also expected -m or --mines argument."
 			sys.exit(1)
 
-		currgame.setNew(height, width, mines)
+		if currgame.setNew(height, width, mines)==False:
+			print "Error: Invalid board specifications."
+			sys.exit(1)
 		currgame.printBoard()
 		return True
 	
@@ -164,12 +166,24 @@ def arguments(argv=None):
 			print "Error: No number of mines found found."
 			sys.exit(0)
 	
-		currgame.setNew(height, width, mines)
+		if currgame.setNew(height, width, mines)==False:
+			print "Error: Invalid board specifications."
+			sys.exit(1)
 		currgame.printBoard()
 		return True
 	
 	if "--commands" in argv:
 		print commandsList
+		
+	if "-m" in argv or "--mines" in argv:
+		if ("-w" in argv or "--width" in argv) and ("-h" in argv or "--height" in argv):
+			pass
+		else:
+			if "-d" in argv or "--dimension" in argv:
+				pass
+			else:
+				print "Invalid arguments."
+				sys.exit(1)	
 
 	return False
 	
@@ -202,7 +216,10 @@ def main(currgame):
 		if commandCode==11:
 			newgame=game()
 			currgame=newgame
-			currgame.setNew(height, width, mines)
+			if currgame.setNew(height, width, mines)==False:
+				print "Invalid board specifications"
+				nowPlaying=False
+				continue
 			currgame.printBoard()
 			nowPlaying=True
 		
