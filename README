@@ -1,6 +1,6 @@
 Termine: A Linux terminal minesweeper game
 
-Version: 1.0 (Beta)
+Version: 1.1 (Beta)
 License: GNU General Public License version 3
 
 Source downloaded from:
@@ -16,15 +16,19 @@ Installation and running:
 	or:
 		python ./termine.py
 	
+	NOTE:
+		Make sure that downloaded scripts are executable.
+		If not, type command 'chmod +x ./termine.sh ./termine.py'
+	
 	To make Termine be recognised as a command:
 	
 		Edit your '.bashrc' file (for example type: 'sudo nano ~/.bashrc')
 		Add the folowing line to your '.bashrc' file:
-				alias termine='[path]/termine.sh'
+				alias termine='[path]/termine.py'
 			or:
-				alias Termine='[path]/termine.sh'
+				alias Termine='[path]/termine.py'
 			
-			where [path] is where 'termine.sh' is located.
+			where [path] is where 'termine.py' is located.
 		Afterwards, type command:
 			. ~/.bashrc
 		Now, by typing 'termine' or 'Termine', the program starts.
